@@ -12,17 +12,17 @@ defmodule Calculator do
 
   defp get_numbers do
     IO.puts("Enter the 1'st number")
-    num1 = IO.gets() |> String.trim() |> String.to_integer()
+    num1 = IO.gets("") |> String.trim() |> String.to_integer()
 
     IO.puts("Enter the 2'nd number")
-    num2 = IO.gets() |> String.trim() |> String.to_integer()
+    num2 = IO.gets("") |> String.trim() |> String.to_integer()
 
     {num1, num2}
   end
 
   defp get_operation do
     IO.puts("Enter Corresponding number\n(1)Add\n(2)Sub\n(3)Mul\n(4)Div")
-    IO.gets() |> String.trim() |> String.to_integer()
+    IO.gets("") |> String.trim() |> String.to_integer()
   end
 
   defp perform_operation(num1, num2, 1) do
@@ -52,12 +52,18 @@ defmodule Calculator do
 
   defp acknowledgement do
     IO.puts("Are you done? or would you like to do it again (yes/y) or (no/n)")
-    confirm = IO.gets() |> String.trim()
+    confirm = IO.gets("") |> String.trim()
 
     case confirm do
-      "n" -> IO.puts("Good bye, Thank you for using this session")
-      "y" -> IO.puts("Welcome again...") |> get_input()
-      _ -> acknowledgement()
+      "n" ->
+        IO.puts("Good bye, Thank you for using this session")
+
+      "y" ->
+        IO.puts("Welcome again...")
+        get_input()
+
+      _ ->
+        acknowledgement()
     end
   end
 
