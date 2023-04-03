@@ -1,7 +1,7 @@
 defmodule Calculator do
   def get_input do
-    num1 = IO.gets("Enter the first number\n") |> String.trim_trailing() |> String.to_integer()
-    num2 = IO.gets("Enter the second number\n") |> String.trim_trailing() |> String.to_integer()
+    num1 = IO.gets("Enter the 1'st number\n") |> String.trim_trailing() |> String.to_integer()
+    num2 = IO.gets("Enter the 2'nd number\n") |> String.trim_trailing() |> String.to_integer()
     perform_operation(num1, num2)
   end
 
